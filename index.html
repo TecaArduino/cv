@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luka Kalanj - Web CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            body { background-color: white; padding: 0; }
+            .no-print { display: none !important; }
+            .cv-container { box-shadow: none; border: none; max-width: 100%; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans p-4 md:p-10">
+
+    <!-- Kontrole za promenu jezika -->
+    <div class="max-w-6xl mx-auto mb-4 flex justify-end gap-2 no-print">
+        <button onclick="switchLang('en')" id="btn-en" class="px-3 py-1 bg-slate-800 text-white rounded text-sm font-semibold transition">EN</button>
+        <button onclick="switchLang('sr')" id="btn-sr" class="px-3 py-1 bg-slate-400 text-white rounded text-sm font-semibold hover:bg-slate-600 transition">SR</button>
+        <button onclick="switchLang('es')" id="btn-es" class="px-3 py-1 bg-slate-400 text-white rounded text-sm font-semibold hover:bg-slate-600 transition">ES</button>
+    </div>
+
+    <div class="cv-container max-w-6xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden border border-slate-100 relative">
+        
+        <!-- ============================================== -->
+        <!-- ZAGLAVLJE (Header)                             -->
+        <!-- ============================================== -->
+        <header class="bg-slate-800 text-white p-8 md:p-12 relative">
+            <button onclick="window.print()" class="no-print absolute top-6 right-6 md:top-8 md:right-8 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded text-sm transition duration-300 shadow-lg">
+                🖨️ <span class="lang-en block inline">Save as PDF</span><span class="lang-sr hidden inline">Sačuvaj kao PDF</span><span class="lang-es hidden inline">Guardar como PDF</span>
+            </button>
+
+            <h1 class="text-4xl md:text-5xl font-bold mb-2 tracking-tight uppercase">Luka Kalanj</h1>
+            <h2 class="text-xl md:text-2xl font-light text-slate-300 mb-6">
+                <span class="lang-en block">Electrical Engineering Student | Analog & Embedded Systems</span>
+                <span class="lang-sr hidden">Student elektrotehnike | Analogni i ugrađeni sistemi</span>
+                <span class="lang-es hidden">Estudiante de Ingeniería Eléctrica | Sistemas Analógicos y Embebidos</span>
+            </h2>
+            
+            <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-200 mb-6">
+                <span class="flex items-center gap-2">📍 Novi Sad, Serbia</span>
+                <span class="flex items-center gap-2">✉️ luka.kalanj@gmail.com</span>
+                <span class="flex items-center gap-2">📞 +381 65 207 1195</span>
+            </div>
+
+            <!-- Društvene mreže / Linkovi -->
+            <div class="flex flex-wrap gap-6 border-t border-slate-600 pt-4 text-sm font-semibold">
+                <a href="https://www.linkedin.com/in/luka-kalanj-a70586197/" target="_blank" class="flex items-center gap-2 text-indigo-300 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/TecaArduino" target="_blank" class="flex items-center gap-2 text-indigo-300 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://www.instagram.com/cho.te_/" target="_blank" class="flex items-center gap-2 text-indigo-300 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    Instagram
+                </a>
+                <a href="https://restoplaner.com" target="_blank" class="flex items-center gap-2 text-indigo-300 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                    Restoplaner
+                </a>
+            </div>
+        </header>
+
+        <!-- ZAJEDNIČKA STRUKTURA (Jezici se menjaju u blokovima) -->
+        
+        <!-- ============================================== -->
+        <!-- ENGLISH VERSION                                -->
+        <!-- ============================================== -->
+        <div id="content-en" class="lang-en block p-8 md:p-12 grid grid-cols-1 lg:grid-cols-7 gap-12">
+            
+            <div class="lg:col-span-5 space-y-10">
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Profile Summary</h3>
+                    <p class="text-slate-600 leading-relaxed text-justify">
+                        Fourth-year student at the Faculty of Technical Sciences, University of Novi Sad, specializing in Electrical Engineering (Measurement and Control). Experienced in PCB and schematic design, embedded systems, and analog electronics. Proficient in bespoke PCB layout using KiCad and hardware development. Highly motivated to apply and further develop skills in a professional Cadence IC layout environment, with a strong interest in analog circuit design and layout verification (DRC/LVS). Achieved a perfect GPA of 5.00/5.00 upon graduating from high school. Certified C1 level proficiency in English.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-6 text-slate-800 uppercase tracking-wider text-sm">Projects & Technical Experience</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Restoplaner - Employee Scheduling Application (Creator)</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2026 - Present</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Designed and developed a software solution to optimize employee shift scheduling for restaurants.</li>
+                                <li>Built in close collaboration with restaurant owners, staff, and university professors to directly address real-world management challenges.</li>
+                                <li>Empowers managers and owners to create and manage staff schedules significantly faster, better, and with greater ease.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">OhmSprint Competition - Accurate Design of Energy Meter</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">April 2026 - May 2026</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Participating in a hardware design competition with goal of creating an accurate voltage, current, and energy consumption meter.</li>
+                                <li>Using best practices for PCB layout, ADC interface, and analog front-end design in time-constrained, competitive environment.</li>
+                                <li>Competition tasks are closely related to analog IC layout and verification skills required in professional EDA environments.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Academic Project - Smart Chessboard</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2026 - Present</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Creating an intelligent chessboard that can use a sensor matrix to identify piece positions and provide games status on a desktop application.</li>
+                                <li>Hardware architecture includes Raspberry Pi single-board computer and 8x8 reed relay grid.</li>
+                                <li>Python software interface, communication server, and board logic development.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">University Project - Temperature and Motion Sensing Device (Self-initiated)</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2026</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Self-initiated team project demonstrating initiative and ownership beyond typical coursework assignments.</li>
+                                <li>Designed and built all custom hardware from scratch, including ESP32-based control system, a PIR motion detection module, and an analog temperature sensing circuit (LM35) that runs on unipolar supply.</li>
+                                <li>PCB layout was designed with careful consideration for power routing, component placement, and signal integrity-skills directly transferable to analog IC layout.</li>
+                                <li>Closed-loop temperature regulation was put into practice. The system uses measured temperature thresholds to operate an output device.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Independent Project - IoT Remote Climate Control System</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2025</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Created a full-stack Internet of Things solution that uses a web interface to remotely control an air conditioner.</li>
+                                <li>Technologies: ESP8266, Raspberry Pi, MQTT protocol, Python Flask backend, and HTML/CSS frontend.</li>
+                                <li>The system offers real-time status monitoring and bidirectional control over Wi-Fi.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">mBot Robot - National Contest</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2016</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Used movement logic and sensor fusion to program a mBot robot to complete tasks on its own.</li>
+                                <li>Participated in a national robotics competition on behalf of the school (Bitka za znanje).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-6 text-slate-800 uppercase tracking-wider text-sm">Work Experience</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">PLC Programming Intern</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2024 (Two weeks)</span>
+                            </div>
+                            <div class="text-sm text-indigo-600 font-medium mb-2">Dijamant DOO, Zrenjanin</div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm">
+                                <li>Programmed Siemens PLCs for industrial automation processes at a production facility.</li>
+                                <li>Obtained practical expertise with industrial control systems, ladder logic, and real-world automation constraints.</li>
+                                <li>Demonstrated quick learning in an industrial setting by successfully programming automation sequences independently.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Construction Team Seasonal Worker</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">Summer '23 & Summer '24 (One month each)</span>
+                            </div>
+                            <div class="text-sm text-indigo-600 font-medium mb-2">Bremerhaven, Germany</div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm">
+                                <li>Delivered reliable work in a bilingual, multinational team environment.</li>
+                                <li>Developed discipline, adaptability, and intercultural communication skills.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Food Delivery Courier</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2021 - 2022</span>
+                            </div>
+                            <div class="text-sm text-indigo-600 font-medium mb-2">Banat Bar, Kikinda</div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm">
+                                <li>Managed urgent deliveries in a fast-paced environment while strengthening problem-solving and responsibility skills.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="lg:col-span-2 space-y-10">
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Education</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-md font-bold text-slate-800">BSc Electrical Engineering - Measurement & Control</h4>
+                            <div class="text-sm text-indigo-600 my-1">Faculty of Technical Sciences, University of Novi Sad</div>
+                            <span class="text-xs text-slate-500 font-medium">2021 - Present (4th year)</span>
+                        </div>
+                        <div>
+                            <h4 class="text-md font-bold text-slate-800">Telecommunications Technician</h4>
+                            <div class="text-sm text-indigo-600 my-1">Tehnička škola Kikinda</div>
+                            <span class="text-xs text-slate-500 font-medium block">2018 - 2021</span>
+                            <span class="text-xs font-semibold text-emerald-600">Graduated with a perfect GPA: 5.00/5.00</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Technical Skills</h3>
+                    <div class="mb-4">
+                        <h4 class="text-sm font-bold text-slate-700 mb-2">EDA & Hardware</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">KiCad (schematic + PCB)</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">DRC/LVS</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Sensor Integration</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Signal Conditioning</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">UART / I2C / SPI</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-700 mb-2">Programming</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">C/C++</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Python</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Arduino IDE</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Siemens PLC</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">HTML/CSS</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Languages</h3>
+                    <ul class="space-y-2 text-sm text-slate-600 font-medium">
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>English</span> <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded">C1 (Certified)</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>Spanish</span> <span class="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded">A1.2 (Learning)</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>German</span> <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Basic</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>Serbian</span> <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded">Native</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Certifications & Other</h3>
+                    <ul class="list-disc list-inside text-xs text-slate-600 space-y-2">
+                        <li>English C1 Level, Oxford Academy</li>
+                        <li>Fourth Industrial Revolution: New Technologies - PKS, UNDP, Fondacija Petlja</li>
+                        <li>NLP for Youth - Institute for Personal Development (5-month program)</li>
+                        <li>Driver's license - category B</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Hobbies</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Chess</span>
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Reading</span>
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Electronics & Tinkering</span>
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Calisthenics</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- SERBIAN VERSION                                -->
+        <!-- ============================================== -->
+        <div id="content-sr" class="lang-sr hidden p-8 md:p-12 grid grid-cols-1 lg:grid-cols-7 gap-12">
+            <div class="lg:col-span-5 space-y-10">
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Profil</h3>
+                    <p class="text-slate-600 leading-relaxed text-justify">
+                        Student četvrte godine Fakulteta tehničkih nauka, Univerzitet u Novom Sadu, smer Elektrotehnika (Merni i regulacioni sistemi). Iskusan u dizajnu štampanih ploča (PCB) i šema, ugrađenim sistemima i analognoj elektronici. Vešt u prilagođenom dizajnu PCB-a koristeći KiCad i razvoju hardvera. Visoko motivisan za primenu i dalji razvoj veština u profesionalnom Cadence IC layout okruženju, sa snažnim interesovanjem za dizajn analognih kola i verifikaciju (DRC/LVS). Ostvario prosek 5.00/5.00 po završetku srednje škole. Sertifikovan nivo C1 iz engleskog jezika.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-6 text-slate-800 uppercase tracking-wider text-sm">Projekti i Tehničko Iskustvo</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Restoplaner - Aplikacija za raspored smena (Kreator)</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2026 - Trenutno</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Dizajnirao i razvio softversko rešenje za optimizaciju pravljenja rasporeda radnika u restoranima.</li>
+                                <li>Aplikacija je kreirana u bliskoj saradnji sa vlasnicima restorana, zaposlenima i uz savete profesora.</li>
+                                <li>Omogućava menadžerima brže, efikasnije i lakše kreiranje i vođenje smena zaposlenih.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">OhmSprint Takmičenje - Precizan dizajn merača energije</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">April 2026 - Maj 2026</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Učešće na takmičenju u dizajnu hardvera sa ciljem kreiranja preciznog merača napona, struje i potrošnje energije.</li>
+                                <li>Korišćenje najboljih praksi za dizajn PCB-a, ADC interfejs i analogni front-end u vremenski ograničenom i takmičarskom okruženju.</li>
+                                <li>Zadaci na takmičenju su usko povezani sa veštinama dizajniranja analognih IC-ova i verifikacije.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Akademski projekat - Pametna šahovska tabla</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2026 - Trenutno</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Kreiranje inteligentne šahovske table koja koristi senzorsku matricu za identifikaciju pozicija figura i praćenje statusa igre putem desktop aplikacije.</li>
+                                <li>Hardverska arhitektura uključuje Raspberry Pi i 8x8 mrežu reed releja.</li>
+                                <li>Razvoj softverskog interfejsa u Pythonu, komunikacionog servera i logike funkcionisanja.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Univerzitetski projekat - Uređaj za detekciju temperature i pokreta (Samoinicijativno)</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2026</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Samoinicijativni timski projekat koji pokazuje preuzimanje odgovornosti van standardnih zadataka.</li>
+                                <li>Dizajniran i napravljen prilagođeni hardver od nule, uključujući kontrolni sistem na ESP32 bazi, PIR senzor i analogno kolo (LM35) sa unipolarnim napajanjem.</li>
+                                <li>PCB dizajniran uz pažljivo razmatranje napajanja i integriteta signala - veštine koje se direktno primenjuju u dizajnu analognih integrisanih kola.</li>
+                                <li>Primenjena je regulacija temperature u zatvorenoj petlji.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Nezavisni projekat - IoT sistem za daljinsku kontrolu klime</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2025</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Kreirano full-stack IoT rešenje koje koristi web interfejs za daljinsku kontrolu klima uređaja.</li>
+                                <li>Tehnologije: ESP8266, Raspberry Pi, MQTT protokol, Python Flask i HTML/CSS.</li>
+                                <li>Sistem nudi nadgledanje statusa u realnom vremenu i dvosmernu kontrolu preko Wi-Fi mreže.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">mBot Robot - Nacionalno takmičenje</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2016</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Programiranje mBot robota pomoću logike kretanja i fuzije senzora za samostalno izvršavanje zadataka.</li>
+                                <li>Učešće na nacionalnom takmičenju iz robotike kao predstavnik škole (Bitka za znanje).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-6 text-slate-800 uppercase tracking-wider text-sm">Radno Iskustvo</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Praktikant (Programiranje PLC-a)</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2024 (Dve nedelje)</span>
+                            </div>
+                            <div class="text-sm text-indigo-600 font-medium mb-2">Dijamant DOO, Zrenjanin</div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm">
+                                <li>Programiranje Siemens PLC-ova za procese industrijske automatizacije.</li>
+                                <li>Stekao praktično znanje u radu sa industrijskim sistemima upravljanja i "ladder" logikom.</li>
+                                <li>Demonstrirao brzo učenje uspešnim i samostalnim programiranjem sekvenci automatizacije.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Sezonski Radnik u Građevini</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">Leto '23 & Leto '24 (Po mesec dana)</span>
+                            </div>
+                            <div class="text-sm text-indigo-600 font-medium mb-2">Bremerhaven, Nemačka</div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm">
+                                <li>Rad u dvojezičnom, multinacionalnom timu.</li>
+                                <li>Razvio disciplinu, prilagodljivost i veštine interkulturalne komunikacije.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Kurir za Dostavu Hrane</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2021 - 2022</span>
+                            </div>
+                            <div class="text-sm text-indigo-600 font-medium mb-2">Banat Bar, Kikinda</div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm">
+                                <li>Upravljao hitnim dostavama u dinamičnom okruženju, razvijajući odgovornost i snalažljivost.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="lg:col-span-2 space-y-10">
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Obrazovanje</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-md font-bold text-slate-800">Diplomirani inženjer elektrotehnike</h4>
+                            <div class="text-sm text-indigo-600 my-1">Fakultet tehničkih nauka, Univerzitet u Novom Sadu</div>
+                            <span class="text-xs text-slate-500 font-medium">2021 - Trenutno (4. godina)</span>
+                        </div>
+                        <div>
+                            <h4 class="text-md font-bold text-slate-800">Elektrotehničar telekomunikacija</h4>
+                            <div class="text-sm text-indigo-600 my-1">Tehnička škola Kikinda</div>
+                            <span class="text-xs text-slate-500 font-medium block">2018 - 2021</span>
+                            <span class="text-xs font-semibold text-emerald-600">Završeno sa prosekom: 5.00/5.00</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Tehničke Veštine</h3>
+                    <div class="mb-4">
+                        <h4 class="text-sm font-bold text-slate-700 mb-2">EDA & Hardver</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">KiCad (šeme + PCB)</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">DRC/LVS</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Integracija senzora</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">UART / I2C / SPI</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-700 mb-2">Programiranje</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">C/C++</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Python</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Arduino IDE</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Siemens PLC</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">HTML/CSS</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Jezici</h3>
+                    <ul class="space-y-2 text-sm text-slate-600 font-medium">
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>Engleski</span> <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded">C1 (Sertifikovan)</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>Španski</span> <span class="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded">A1.2 (Učim)</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>Nemački</span> <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Osnovni</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>Srpski</span> <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded">Maternji</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Sertifikati & Ostalo</h3>
+                    <ul class="list-disc list-inside text-xs text-slate-600 space-y-2">
+                        <li>Engleski C1 Nivo, Oxford Academy</li>
+                        <li>4. Industrijska Revolucija: Nove tehnologije - PKS, UNDP, Fondacija Petlja</li>
+                        <li>NLP za mlade - Institut za lični razvoj (Program od 5 meseci)</li>
+                        <li>Vozačka dozvola - B kategorija</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Hobiji</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Šah</span>
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Čitanje</span>
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Elektronika</span>
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Calisthenics</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- SPANISH VERSION                                -->
+        <!-- ============================================== -->
+        <div id="content-es" class="lang-es hidden p-8 md:p-12 grid grid-cols-1 lg:grid-cols-7 gap-12">
+            <div class="lg:col-span-5 space-y-10">
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Perfil Profesional</h3>
+                    <p class="text-slate-600 leading-relaxed text-justify">
+                        Estudiante de cuarto año en la Facultad de Ciencias Técnicas, Universidad de Novi Sad, especializado en Ingeniería Eléctrica (Medición y Control). Experiencia en diseño de placas de circuito impreso (PCB) y esquemas, sistemas embebidos y electrónica analógica. Competente en el diseño de PCB a medida utilizando KiCad y el desarrollo de hardware. Altamente motivado para aplicar y desarrollar aún más estas habilidades en un entorno profesional, con un fuerte interés en el diseño de circuitos analógicos y verificación (DRC/LVS). Logró un promedio perfecto de 5.00/5.00 al graduarse de la escuela secundaria. Nivel de inglés certificado C1.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-6 text-slate-800 uppercase tracking-wider text-sm">Proyectos y Experiencia Técnica</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Restoplaner - Aplicación de Horarios (Creador)</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2026 - Presente</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Diseñó y desarrolló una solución de software para optimizar la programación de turnos en restaurantes.</li>
+                                <li>Creado en estrecha colaboración con dueños de restaurantes, personal y con el asesoramiento de profesores universitarios.</li>
+                                <li>Ayuda a los gerentes y propietarios a crear y gestionar horarios de manera mucho más rápida, mejor y más sencilla.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Competición OhmSprint - Medidor de Energía</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">Abril 2026 - Mayo 2026</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Participando en un concurso de diseño de hardware para crear un medidor preciso de voltaje, corriente y consumo de energía.</li>
+                                <li>Aplicando las mejores prácticas para el diseño de PCB, interfaz ADC y front-end analógico.</li>
+                                <li>Las tareas del concurso están estrechamente relacionadas con el diseño y verificación de IC analógicos.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Proyecto Académico - Tablero de Ajedrez Inteligente</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2026 - Presente</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Creación de un tablero inteligente que utiliza una matriz de sensores (relé reed 8x8) para identificar piezas.</li>
+                                <li>La arquitectura de hardware incluye Raspberry Pi.</li>
+                                <li>Desarrollo de interfaz de software en Python y lógica de tablero.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Proyecto Universitario - Dispositivo Sensor de Temperatura y Movimiento</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2026</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Diseñó y construyó todo el hardware desde cero: sistema de control basado en ESP32, módulo PIR y circuito analógico de temperatura (LM35).</li>
+                                <li>Diseño de PCB optimizado para el enrutamiento de energía y la integridad de la señal.</li>
+                                <li>Implementación de regulación de temperatura en circuito cerrado.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Proyecto Independiente - Sistema IoT de Control de Clima</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2025</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Solución IoT completa que utiliza una interfaz web para controlar el aire acondicionado de forma remota.</li>
+                                <li>Tecnologías: ESP8266, Raspberry Pi, protocolo MQTT, Python Flask y HTML/CSS.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Robot mBot - Concurso Nacional</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2016</span>
+                            </div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+                                <li>Programó un robot mBot para completar tareas por sí solo.</li>
+                                <li>Representó a la escuela en el concurso nacional de robótica.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-6 text-slate-800 uppercase tracking-wider text-sm">Experiencia Laboral</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Pasante de Programación de PLC</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2024 (Dos semanas)</span>
+                            </div>
+                            <div class="text-sm text-indigo-600 font-medium mb-2">Dijamant DOO, Zrenjanin</div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm">
+                                <li>Programación de PLC Siemens para procesos de automatización industrial.</li>
+                                <li>Obtuvo experiencia práctica con sistemas de control industrial y lógica de escalera.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Trabajador de Temporada en Construcción</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">Verano '23 & '24</span>
+                            </div>
+                            <div class="text-sm text-indigo-600 font-medium mb-2">Bremerhaven, Alemania</div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm">
+                                <li>Trabajo confiable en un entorno de equipo bilingüe y multinacional.</li>
+                                <li>Desarrollo de disciplina, adaptabilidad y comunicación intercultural.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-lg font-bold text-slate-800">Repartidor de Comida</h4>
+                                <span class="text-xs text-slate-600 font-semibold bg-slate-100 px-2 py-1 rounded">2021 - 2022</span>
+                            </div>
+                            <div class="text-sm text-indigo-600 font-medium mb-2">Banat Bar, Kikinda</div>
+                            <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm">
+                                <li>Gestión de entregas urgentes en un entorno de ritmo rápido.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="lg:col-span-2 space-y-10">
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Educación</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-md font-bold text-slate-800">Grado en Ingeniería Eléctrica</h4>
+                            <div class="text-sm text-indigo-600 my-1">Universidad de Novi Sad</div>
+                            <span class="text-xs text-slate-500 font-medium">2021 - Presente (4º año)</span>
+                        </div>
+                        <div>
+                            <h4 class="text-md font-bold text-slate-800">Técnico en Telecomunicaciones</h4>
+                            <div class="text-sm text-indigo-600 my-1">Escuela Técnica Kikinda</div>
+                            <span class="text-xs text-slate-500 font-medium block">2018 - 2021</span>
+                            <span class="text-xs font-semibold text-emerald-600">Promedio: 5.00/5.00</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Habilidades Técnicas</h3>
+                    <div class="mb-4">
+                        <h4 class="text-sm font-bold text-slate-700 mb-2">EDA & Hardware</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">KiCad (PCB)</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">DRC/LVS</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Sensores</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">UART / I2C / SPI</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-700 mb-2">Programación</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">C/C++</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Python</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Arduino IDE</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">Siemens PLC</span>
+                            <span class="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs font-semibold border border-slate-200">HTML/CSS</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Idiomas</h3>
+                    <ul class="space-y-2 text-sm text-slate-600 font-medium">
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>Inglés</span> <span class="text-xs bg-indigo-50 text-indigo-700 px-2 py-1 rounded">C1 (Certificado)</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>Español</span> <span class="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded">A1.2 (Estudiando)</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>Alemán</span> <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Básico</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                            <span>Serbio</span> <span class="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded">Nativo</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Certificaciones</h3>
+                    <ul class="list-disc list-inside text-xs text-slate-600 space-y-2">
+                        <li>Certificado de Inglés C1</li>
+                        <li>Cuarta Revolución Industrial - PKS, UNDP</li>
+                        <li>PNL para jóvenes (Programa de 5 meses)</li>
+                        <li>Licencia de conducir - categoría B</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3 class="text-2xl font-bold border-b-2 border-slate-200 pb-2 mb-4 text-slate-800 uppercase tracking-wider text-sm">Pasatiempos</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Ajedrez</span>
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Lectura</span>
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Electrónica</span>
+                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-semibold">Calisthenics</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Skripta za menjanje jezika -->
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-en, .lang-sr, .lang-es').forEach(el => {
+                if(el.tagName === 'SPAN') {
+                    el.classList.add('hidden');
+                } else {
+                    el.classList.add('hidden');
+                    el.classList.remove('block');
+                }
+            });
+
+            document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+                if(el.tagName === 'SPAN') {
+                    el.classList.remove('hidden');
+                    el.classList.add('inline');
+                } else {
+                    el.classList.remove('hidden');
+                    el.classList.add('block');
+                }
+            });
+
+            document.getElementById('btn-en').className = "px-3 py-1 bg-slate-400 text-white rounded text-sm font-semibold hover:bg-slate-600 transition";
+            document.getElementById('btn-sr').className = "px-3 py-1 bg-slate-400 text-white rounded text-sm font-semibold hover:bg-slate-600 transition";
+            document.getElementById('btn-es').className = "px-3 py-1 bg-slate-400 text-white rounded text-sm font-semibold hover:bg-slate-600 transition";
+            
+            document.getElementById(`btn-${lang}`).className = "px-3 py-1 bg-slate-800 text-white rounded text-sm font-semibold opacity-100 transition";
+        }
+    </script>
+</body>
+</html>
