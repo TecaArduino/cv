@@ -137,25 +137,26 @@
             const lang = document.documentElement.dataset.lang || 'en';
             const source = document.querySelector('.cv-container');
 
-            // Kopija CV-a fiksne A4 širine, van vidokruga korisnika
-            const wrapper = document.createElement('div');
-            wrapper.style.cssText = 'position:fixed;top:0;left:0;width:794px;z-index:-1;background:#fff;';
+            // Kopija CV-a fiksne A4 širine; html2pdf je sam ubacuje u svoj privremeni kontejner
             const clone = source.cloneNode(true);
             clone.classList.add('pdf-mode');
+            clone.style.width = '794px';
+            clone.style.maxWidth = '794px';
+            clone.style.margin = '0';
             clone.querySelectorAll('.no-print').forEach(el => el.remove());
-            wrapper.appendChild(clone);
-            document.body.appendChild(wrapper);
+
+            window.scrollTo(0, 0); // skrol van vrha je čest uzrok praznih stranica
 
             const opt = {
                 margin: [6, 0, 6, 0],
                 filename: `Luka_Kalanj_CV_${lang.toUpperCase()}.pdf`,
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true, windowWidth: 1200 },
+                html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, windowWidth: 1200, backgroundColor: '#ffffff' },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
                 pagebreak: { mode: ['css'], avoid: '.break-inside-avoid' }
             };
 
-            html2pdf().set(opt).from(clone).save().finally(() => wrapper.remove());
+            html2pdf().set(opt).from(clone).save();
         }
     </script>
 </body>
