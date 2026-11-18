@@ -9,53 +9,51 @@
     <style>
         @page { size: A4; margin: 8mm; }
         @media print {
-            body { background-color: white; padding: 0; font-size: 11px !important; color: #1e293b; line-height: 1.3 !important; }
+            body { background-color: white; padding: 0; }
             .no-print { display: none !important; }
-            .pdf-only { display: flex !important; }
             .cv-container { box-shadow: none; border: none; max-width: 100%; margin: 0; }
-            header { padding: 1rem 1.5rem !important; }
-            .p-8, .md\:p-12 { padding: 1rem 1.5rem !important; }
-            .space-y-10 > * + * { margin-top: 0.75rem !important; }
-            .space-y-6 > * + * { margin-top: 0.4rem !important; }
-            .gap-12 { gap: 1.5rem !important; }
-            h1 { font-size: 1.6rem !important; margin-bottom: 0.2rem !important; }
-            h2 { font-size: 1rem !important; margin-bottom: 0.4rem !important; }
-            h3 { font-size: 0.95rem !important; margin-bottom: 0.3rem !important; padding-bottom: 0.1rem !important; }
-            h4 { font-size: 11.5px !important; }
-            .mb-6 { margin-bottom: 0.4rem !important; }
-            .mb-4 { margin-bottom: 0.3rem !important; }
-            .mb-3 { margin-bottom: 0.2rem !important; }
-            .mt-2 { margin-top: 0.15rem !important; }
-            ul { line-height: 1.25 !important; }
-            p { line-height: 1.3 !important; }
-            .px-2 { padding-left: 0.3rem !important; padding-right: 0.3rem !important; }
-            .py-1 { padding-top: 0.1rem !important; padding-bottom: 0.1rem !important; }
-            .text-xs { font-size: 9.5px !important; }
-            .text-sm { font-size: 10.5px !important; }
-            section, .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
         }
 
-        /* Kompaktan režim samo za PDF export */
-        .pdf-mode { box-shadow:none !important; border:none !important; border-radius:0 !important; font-size:10px; line-height:1.35; }
-        .pdf-mode .pdf-only { display:flex !important; }
-        .pdf-mode header { padding:18px 28px !important; }
-        .pdf-mode h1 { font-size:26px !important; margin-bottom:2px !important; }
-        .pdf-mode header h2 { font-size:13px !important; margin-bottom:8px !important; }
-        .pdf-mode header .mb-6 { margin-bottom:8px !important; }
-        .pdf-mode [id^="content-"] { padding:18px 28px !important; gap:22px !important; }
-        .pdf-mode .space-y-10 > * + * { margin-top:14px !important; }
-        .pdf-mode .space-y-6 > * + * { margin-top:9px !important; }
-        .pdf-mode .space-y-4 > * + * { margin-top:8px !important; }
-        .pdf-mode .space-y-2 > * + * { margin-top:4px !important; }
-        .pdf-mode .space-y-1 > * + * { margin-top:1px !important; }
-        .pdf-mode h3 { font-size:11px !important; margin-bottom:6px !important; padding-bottom:3px !important; }
-        .pdf-mode h4 { font-size:11px !important; }
-        .pdf-mode .text-sm { font-size:10px !important; }
-        .pdf-mode .text-xs { font-size:9px !important; }
-        .pdf-mode .mb-3 { margin-bottom:5px !important; }
-        .pdf-mode .mb-2 { margin-bottom:3px !important; }
-        .pdf-mode .px-2 { padding-left:5px !important; padding-right:5px !important; }
-        .pdf-mode .py-1 { padding-top:1px !important; padding-bottom:1px !important; }
+        /* Agresivni kompaktni režim samo za PDF export */
+        .pdf-mode { 
+            width: 794px !important; /* Fiksna širina A4 formata */
+            max-width: 794px !important;
+            margin: 0 auto !important;
+            box-shadow: none !important; 
+            border: none !important; 
+            border-radius: 0 !important; 
+            font-size: 10.5px !important; /* Sitniji glavni font */
+            line-height: 1.3 !important; 
+        }
+        .pdf-mode .pdf-only { display: flex !important; }
+        
+        /* Forsiranje 2 kolone (da se ne bi raspalo u 1 kolonu kao na telefonu) */
+        .pdf-mode .grid { display: grid !important; grid-template-columns: repeat(7, minmax(0, 1fr)) !important; }
+        .pdf-mode .lg\:col-span-5 { grid-column: span 5 / span 5 !important; }
+        .pdf-mode .lg\:col-span-2 { grid-column: span 2 / span 2 !important; }
+        
+        /* Ekstremno smanjivanje margina i proreda */
+        .pdf-mode header { padding: 1.2rem 2rem !important; }
+        .pdf-mode h1 { font-size: 1.8rem !important; margin-bottom: 0.1rem !important; }
+        .pdf-mode header h2 { font-size: 1rem !important; margin-bottom: 0.5rem !important; }
+        .pdf-mode header .mb-6 { margin-bottom: 0.5rem !important; }
+        .pdf-mode [id^="content-"] { padding: 1.2rem 2rem !important; gap: 1.5rem !important; }
+        .pdf-mode .space-y-10 > * + * { margin-top: 0.8rem !important; }
+        .pdf-mode .space-y-6 > * + * { margin-top: 0.5rem !important; }
+        .pdf-mode .space-y-4 > * + * { margin-top: 0.4rem !important; }
+        .pdf-mode .space-y-2 > * + * { margin-top: 0.2rem !important; }
+        .pdf-mode h3 { font-size: 12px !important; margin-bottom: 0.4rem !important; padding-bottom: 0.1rem !important; }
+        .pdf-mode h4 { font-size: 11px !important; }
+        .pdf-mode .text-sm { font-size: 10px !important; }
+        .pdf-mode .text-xs { font-size: 9px !important; }
+        .pdf-mode .mb-4 { margin-bottom: 0.3rem !important; }
+        .pdf-mode .mb-3 { margin-bottom: 0.25rem !important; }
+        .pdf-mode .mb-2 { margin-bottom: 0.15rem !important; }
+        .pdf-mode .px-2 { padding-left: 0.3rem !important; padding-right: 0.3rem !important; }
+        .pdf-mode .py-1 { padding-top: 0.1rem !important; padding-bottom: 0.1rem !important; }
+        
+        /* Izbegavanje sečenja blokova (da ne pređe pola teksta na drugu stranu) */
+        .pdf-mode section, .pdf-mode .break-inside-avoid { break-inside: avoid; page-break-inside: avoid; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans p-4 md:p-10">
@@ -137,26 +135,37 @@
             const lang = document.documentElement.dataset.lang || 'en';
             const source = document.querySelector('.cv-container');
 
-            // Kopija CV-a fiksne A4 širine; html2pdf je sam ubacuje u svoj privremeni kontejner
-            const clone = source.cloneNode(true);
-            clone.classList.add('pdf-mode');
-            clone.style.width = '794px';
-            clone.style.maxWidth = '794px';
-            clone.style.margin = '0';
-            clone.querySelectorAll('.no-print').forEach(el => el.remove());
+            // 1. Privremeno sakrivamo dugmiće za PDF i prevod
+            document.querySelectorAll('.no-print').forEach(el => el.style.display = 'none');
 
-            window.scrollTo(0, 0); // skrol van vrha je čest uzrok praznih stranica
+            // 2. Primenjujemo PDF mod direktno na aktivni DOM element (NEMA KLONIRANJA!)
+            source.classList.add('pdf-mode');
+
+            // 3. Vraćamo skrol na vrh (html2canvas iseče PDF ako si odskrolao dole)
+            window.scrollTo(0, 0); 
 
             const opt = {
-                margin: [6, 0, 6, 0],
+                margin: [8, 0, 8, 0], // Margine vrha i dna u mm
                 filename: `Luka_Kalanj_CV_${lang.toUpperCase()}.pdf`,
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0, windowWidth: 1200, backgroundColor: '#ffffff' },
+                html2canvas: { 
+                    scale: 2, 
+                    useCORS: true, 
+                    scrollY: 0,
+                    windowWidth: 794 // Fiksiramo širinu za A4 rezoluciju
+                },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pagebreak: { mode: ['css'], avoid: '.break-inside-avoid' }
+                pagebreak: { mode: 'css', avoid: '.break-inside-avoid' }
             };
 
-            html2pdf().set(opt).from(clone).save();
+            // 4. Generišemo PDF
+            html2pdf().set(opt).from(source).save().then(() => {
+                // 5. Kad se preuzimanje završi, vraćamo originalni izgled na ekranu
+                source.classList.remove('pdf-mode');
+                document.querySelectorAll('.no-print').forEach(el => el.style.display = '');
+            });
+
+            //html2pdf().set(opt).from(clone).save();
         }
     </script>
 </body>
