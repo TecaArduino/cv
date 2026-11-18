@@ -9,125 +9,184 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
-        @page {
-            size: A4;
-            margin: 8mm;
-        }
+    @page {
+        size: A4;
+        margin: 8mm;
+    }
 
-        @media print {
-            body {
-                background-color: white;
-                padding: 0;
-            }
-            .no-print {
-                display: none !important;
-            }
-            .cv-container {
-                box-shadow: none;
-                border: none;
-                max-width: 100%;
-                margin: 0;
-            }
-        }
-
-        /* Kompaktni režim samo za PDF izvoz */
-        .pdf-mode {
-            width: 794px !important;
-            max-width: 794px !important;
-            margin: 0 !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-radius: 0 !important;
-            font-size: 10.5px !important;
-            line-height: 1.3 !important;
+    /* Samo za štampu / Save as PDF */
+    @media print {
+        html, body {
             background: #ffffff !important;
         }
 
-        .pdf-mode .pdf-only {
+        body {
+            padding: 0 !important;
+            margin: 0 !important;
+            font-size: 10px !important;
+            line-height: 1.3 !important;
+        }
+
+        /* Da tamna zaglavlja i tagovi ostanu obojeni u PDF-u */
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .no-print {
+            display: none !important;
+        }
+
+        .pdf-only {
             display: flex !important;
         }
 
-        /* Forsiranje dve kolone, da PDF ne bi postao jedna kolona */
-        .pdf-mode .grid {
+        .cv-container {
+            box-shadow: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            overflow: visible !important;
+        }
+
+        /* Sakrivanje neaktivnih jezika (Tailwind "hidden" bi inače pregazio grid) */
+        [id^="content-"].hidden {
+            display: none !important;
+        }
+
+        /* Dve kolone bez obzira na širinu prozora */
+        [id^="content-"] {
             display: grid !important;
             grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+            gap: 14px !important;
+            padding: 14px 24px !important;
         }
-        .pdf-mode .lg\:col-span-5 {
+
+        .lg\:col-span-5 {
             grid-column: span 5 / span 5 !important;
         }
-        .pdf-mode .lg\:col-span-2 {
+
+        .lg\:col-span-2 {
             grid-column: span 2 / span 2 !important;
         }
 
-        .pdf-mode header {
-            padding: 1.2rem 2rem !important;
-        }
-        .pdf-mode h1 {
-            font-size: 1.8rem !important;
-            margin-bottom: 0.1rem !important;
-        }
-        .pdf-mode header h2 {
-            font-size: 1rem !important;
-            margin-bottom: 0.5rem !important;
-        }
-        .pdf-mode header .mb-6 {
-            margin-bottom: 0.5rem !important;
-        }
-        .pdf-mode [id^="content-"] {
-            padding: 1.2rem 2rem !important;
-            gap: 1.5rem !important;
-        }
-        .pdf-mode .space-y-10 > * + * {
-            margin-top: 0.8rem !important;
-        }
-        .pdf-mode .space-y-6 > * + * {
-            margin-top: 0.5rem !important;
-        }
-        .pdf-mode .space-y-4 > * + * {
-            margin-top: 0.4rem !important;
-        }
-        .pdf-mode .space-y-2 > * + * {
-            margin-top: 0.2rem !important;
-        }
-        .pdf-mode h3 {
-            font-size: 12px !important;
-            margin-bottom: 0.4rem !important;
-            padding-bottom: 0.1rem !important;
-        }
-        .pdf-mode h4 {
-            font-size: 11px !important;
-        }
-        .pdf-mode .text-sm {
-            font-size: 10px !important;
-        }
-        .pdf-mode .text-xs {
-            font-size: 9px !important;
-        }
-        .pdf-mode .mb-4 {
-            margin-bottom: 0.3rem !important;
-        }
-        .pdf-mode .mb-3 {
-            margin-bottom: 0.25rem !important;
-        }
-        .pdf-mode .mb-2 {
-            margin-bottom: 0.15rem !important;
-        }
-        .pdf-mode .px-2 {
-            padding-left: 0.3rem !important;
-            padding-right: 0.3rem !important;
-        }
-        .pdf-mode .py-1 {
-            padding-top: 0.1rem !important;
-            padding-bottom: 0.1rem !important;
+        header {
+            padding: 16px 24px !important;
         }
 
-        /* Blok ne sme da se preseče na pola između dve strane */
-        .pdf-mode section,
-        .pdf-mode .break-inside-avoid {
-            break-inside: avoid;
-            page-break-inside: avoid;
+        h1 {
+            font-size: 26px !important;
+            line-height: 1.1 !important;
+            margin-bottom: 2px !important;
         }
-    </style>
+
+        header h2 {
+            font-size: 13px !important;
+            margin-bottom: 8px !important;
+        }
+
+        header .mb-6 {
+            margin-bottom: 8px !important;
+        }
+
+        h3 {
+            font-size: 11px !important;
+            margin-bottom: 6px !important;
+            padding-bottom: 3px !important;
+        }
+
+        h4 {
+            font-size: 11px !important;
+        }
+
+        .text-lg {
+            font-size: 11.5px !important;
+        }
+
+        .text-md {
+            font-size: 11px !important;
+        }
+
+        .text-sm {
+            font-size: 10px !important;
+        }
+
+        .text-xs {
+            font-size: 9px !important;
+        }
+
+        .space-y-10 > * + * {
+            margin-top: 12px !important;
+        }
+
+        .space-y-6 > * + * {
+            margin-top: 7px !important;
+        }
+
+        .space-y-4 > * + * {
+            margin-top: 6px !important;
+        }
+
+        .space-y-2 > * + * {
+            margin-top: 3px !important;
+        }
+
+        .mb-6 {
+            margin-bottom: 6px !important;
+        }
+
+        .mb-4 {
+            margin-bottom: 5px !important;
+        }
+
+        .mb-3 {
+            margin-bottom: 4px !important;
+        }
+
+        .mb-2 {
+            margin-bottom: 3px !important;
+        }
+
+        .mb-1 {
+            margin-bottom: 2px !important;
+        }
+
+        .pt-2 {
+            padding-top: 4px !important;
+        }
+
+        .px-2 {
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+        }
+
+        .py-1 {
+            padding-top: 1px !important;
+            padding-bottom: 1px !important;
+        }
+
+        ul {
+            line-height: 1.25 !important;
+        }
+
+        p {
+            line-height: 1.3 !important;
+        }
+
+        a {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+
+        /* Blok se ne seče na pola između dve strane */
+        section,
+        .break-inside-avoid {
+            break-inside: avoid !important;
+            page-break-inside: avoid !important;
+        }
+    }
+</style>
 </head>
 
 <body class="bg-slate-50 text-slate-800 font-sans p-4 md:p-10">
@@ -805,74 +864,36 @@
 
     </div>
 
-    <script>
-        function switchLang(lang) {
-            document.querySelectorAll('.lang-en, .lang-sr, .lang-es').forEach(el => {
-                el.classList.add('hidden');
-                if (el.tagName !== 'SPAN') el.classList.remove('block');
-            });
+<script>
+    function switchLang(lang) {
+        document.querySelectorAll('.lang-en, .lang-sr, .lang-es').forEach(el => {
+            el.classList.add('hidden');
+            if (el.tagName !== 'SPAN') el.classList.remove('block');
+        });
 
-            document.querySelectorAll(`.lang-${lang}`).forEach(el => {
-                el.classList.remove('hidden');
-                el.classList.add(el.tagName === 'SPAN' ? 'inline' : 'block');
-            });
+        document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+            el.classList.remove('hidden');
+            el.classList.add(el.tagName === 'SPAN' ? 'inline' : 'block');
+        });
 
-            ['en', 'sr', 'es'].forEach(l => {
-                document.getElementById(`btn-${l}`).className = l === lang
-                    ? 'px-3 py-1 bg-slate-800 text-white rounded text-sm font-semibold transition'
-                    : 'px-3 py-1 bg-slate-400 text-white rounded text-sm font-semibold hover:bg-slate-600 transition';
-            });
+        ['en', 'sr', 'es'].forEach(l => {
+            document.getElementById(`btn-${l}`).className = l === lang
+                ? 'px-3 py-1 bg-slate-800 text-white rounded text-sm font-semibold transition'
+                : 'px-3 py-1 bg-slate-400 text-white rounded text-sm font-semibold hover:bg-slate-600 transition';
+        });
 
-            document.documentElement.dataset.lang = lang;
-        }
+        document.documentElement.dataset.lang = lang;
+    }
 
-        function downloadPDF() {
-            if (typeof html2pdf === 'undefined') {
-                alert('PDF biblioteka nije učitana. Proveri internet konekciju i osveži stranicu.');
-                return;
-            }
+    function downloadPDF() {
+        // Browser štampa trenutno aktivnog jezika; ime fajla se postavlja preko naslova stranice
+        const lang = (document.documentElement.dataset.lang || 'en').toUpperCase();
+        const oldTitle = document.title;
 
-            const lang = document.documentElement.dataset.lang || 'en';
-            const source = document.querySelector('.cv-container');
-
-            // 1. Pravimo kopiju CV-a koja se vidi (z-index iznad svega), bez negativnog z-index-a i bez opacity-ja
-            const wrapper = document.createElement('div');
-            wrapper.style.cssText = 'position:absolute;top:0;left:0;width:794px;z-index:9999;background:#ffffff;';
-
-            const clone = source.cloneNode(true);
-            clone.classList.add('pdf-mode');
-            clone.querySelectorAll('.no-print').forEach(el => el.remove());
-
-            wrapper.appendChild(clone);
-            document.body.appendChild(wrapper);
-
-            // 2. Skrol na vrh, jer html2canvas inače snima pogrešan deo stranice
-            window.scrollTo(0, 0);
-
-            const opt = {
-                margin: [8, 0, 8, 0],
-                filename: `Luka_Kalanj_CV_${lang.toUpperCase()}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: {
-                    scale: 2,
-                    useCORS: true,
-                    scrollX: 0,
-                    scrollY: 0,
-                    windowWidth: 794,
-                    backgroundColor: '#ffffff'
-                },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pagebreak: { mode: ['css', 'legacy'], avoid: '.break-inside-avoid' }
-            };
-
-            // 3. Generišemo PDF, pa uklanjamo kopiju
-            html2pdf()
-                .set(opt)
-                .from(clone)
-                .save()
-                .catch(err => console.error('PDF greška:', err))
-                .finally(() => wrapper.remove());
-        }
-    </script>
+        document.title = `Luka_Kalanj_CV_${lang}`;
+        window.print();
+        document.title = oldTitle;
+    }
+</script>
 </body>
 </html>
