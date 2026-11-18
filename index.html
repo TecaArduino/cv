@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luka Kalanj - Web CV</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         @media print {
             /* Osnovni tekst, pozadina i proredi */
@@ -64,8 +65,8 @@
     <div class="cv-container max-w-6xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden border border-slate-100 relative">
         
         <header class="bg-slate-800 text-white p-8 md:p-12 relative">
-            <button onclick="window.print()" class="no-print absolute top-6 right-6 md:top-8 md:right-8 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded text-sm transition duration-300 shadow-lg">
-                🖨️ <span class="lang-en block inline">Save as PDF</span><span class="lang-sr hidden inline">Sačuvaj kao PDF</span><span class="lang-es hidden inline">Guardar como PDF</span>
+            <button onclick="downloadPDF()" class="no-print absolute top-6 right-6 md:top-8 md:right-8 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded text-sm transition duration-300 shadow-lg">
+                <span class="lang-en block inline">Save as PDF</span><span class="lang-sr hidden inline">Sačuvaj kao PDF</span><span class="lang-es hidden inline">Guardar como PDF</span>
             </button>
 
             <h1 class="text-4xl md:text-5xl font-bold mb-2 tracking-tight uppercase">Luka Kalanj</h1>
@@ -740,6 +741,28 @@
                     el.classList.remove('hidden');
                     el.classList.add('block');
                 }
+            });
+            // Nova funkcija za preuzimanje PDF-a
+        function downloadPDF() {
+            // Prvo sakrivamo dugmiće za jezik i preuzimanje kako ne bi ušli u PDF
+            document.querySelectorAll('.no-print').forEach(el => el.style.display = 'none');
+            
+            // Odabiremo glavni kontejner koji želimo pretvoriti u PDF
+            const element = document.querySelector('.cv-container');
+            
+            // Postavke za PDF
+            const opt = {
+                margin:       [0, 0, 0, 0], // Margine su 0 jer ih već kontroliraš kroz HTML/CSS padding
+                filename:     'Luka_Kalanj_CV.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true }, // scale: 2 osigurava bolju rezoluciju
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Generiraj i preuzmi PDF
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Vrati dugmiće natrag nakon preuzimanja
+                document.querySelectorAll('.no-print').forEach(el => el.style.display = '');
             });
 
             document.getElementById('btn-en').className = "px-3 py-1 bg-slate-400 text-white rounded text-sm font-semibold hover:bg-slate-600 transition";
